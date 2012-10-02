@@ -1,4 +1,5 @@
 Temp::Application.routes.draw do
+    root :to => 'home#public'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
