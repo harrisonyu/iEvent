@@ -18,12 +18,12 @@ class EventController < ApplicationController
 		@form = params[:event]
 		@event = Event.new
 		@event.name = @form[:name]
-		@event.event_start_time = @form[:start_time] #might have to change this
-		@event.event_end_time = @form[:event_end_time]
+		@event.event_start_time = DateTime.new( @form["event_start_time(1i)"].to_i, @form["event_start_time(2i)"].to_i, @form["event_start_time(3i)"].to_i, @form["event_start_time(4i)"].to_i, @form["event_start_time(5i)"].to_i, 0)
+		@event.event_end_time = DateTime.new( @form["event_end_time(1i)"].to_i, @form["event_end_time(2i)"].to_i, @form["event_end_time(3i)"].to_i, @form["event_end_time(4i)"].to_i, @form["event_end_time(5i)"].to_i, 0)
 		@event.cost = @form[:cost]
 		@event.location = @form[:location]
 		@event.description = @form[:description]
-		@event.registration_deadline = @form[:registration_deadline]
+		@event.registration_deadline = DateTime.new( @form["registration_deadline(1i)"].to_i, @form["registration_deadline(2i)"].to_i, @form["registration_deadline(3i)"].to_i, @form["registration_deadline(4i)"].to_i, @form["registration_deadline(5i)"].to_i, 0)
 		@event.food = @form[:food]
 		if @event.save
 			flash[:notice] = "#{@event.name} has been made."

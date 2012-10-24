@@ -1,5 +1,64 @@
 %h2
-  = @event.name
+	<font size = "7">
+	= @event.name
+	Details
+	</font>
 %br
 
-= link_to "Back", home_path, :class => "btn"
+<font size = "5"> Event Starting Time </font>
+%br
+= @event.event_start_time.to_s(:long)
+%br
+%br
+%br
+
+<font size = "5"> Event Ending Time </font>
+%br
+= @event.event_end_time.to_s(:long)
+%br
+%br
+%br
+
+-if @event.cost != nil
+	<font size = "5"> Cost to attend</font>
+	%br
+	= @event.cost
+	%br
+	%br
+	%br
+
+-if @event.location != ""
+	<font size = "5"> Location </font>
+	%br
+	= @event.location
+	%br
+	%br
+	%br
+
+-if @event.description != ""
+	<font size = "5"> Description</font>
+	%br
+	= @event.description
+	%br
+	%br
+	%br
+
+<font size = "5"> Registration Deadline</font>
+%br
+= @event.registration_deadline.to_s(:long)
+%br
+%br
+%br
+
+<font size = "5"> Is there food? </font>
+%br
+= @event.food
+%br
+%br
+%br
+= link_to "Back", home_path, :class => "btn btn-primary"
+
+%br
+%br
+%br
+%br
