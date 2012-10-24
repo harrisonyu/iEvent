@@ -1,0 +1,25 @@
+!!!
+%html
+  %head
+    %title iEvent
+    = stylesheet_link_tag    "application", "bootstrap", media: "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    %header.navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          %h1.nav.pull-left
+            %li= link_to "iEvent", root_path
+          %nav
+          %ul.nav.pull-right
+            %li= link_to "Home", home_path
+            %li= link_to "About iEvent", about_path
+    .container
+      - if flash[:notice]
+        %div#flash_notice
+          =flash[:notice]
+      - if flash[:warning]
+        %div#flash_alert
+          =flash[:warning]
+      = yield

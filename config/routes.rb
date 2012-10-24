@@ -1,5 +1,15 @@
 Temp::Application.routes.draw do
     root :to => 'home#public'
+
+    match '/home' => 'home#index', :as => :home
+    match '/home/about' => 'home#about', :as => :about
+
+    get   '/home/event/new'         => 'event#new',     :as => :new_event
+    post  '/home/event/create'      => 'event#create',  :as => :create_event
+    get   '/home/event/:id'         => 'event#show',    :as => :show_event
+    get   '/home/event/delete/:id'  => 'event#delete',  :as => :delete_event
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

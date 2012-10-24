@@ -1,0 +1,23 @@
+iEvent
+
+%br
+%br
+= link_to "Create a new event", new_event_path, class: "btn btn-primary"
+
+%br
+%br
+
+%table.table.table-bordered
+  %thead
+    %tr               
+      %th Name:
+      %th Delete
+  %tbody
+    - @events.each do |e|
+      %tr
+        %td 
+          = link_to e.name, show_event_path(e.id), class: "linkify-td"
+        %td
+          = link_to "Delete", delete_event_path(e.id), class: "btn"
+
+  %br
