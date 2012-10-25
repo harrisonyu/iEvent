@@ -1,0 +1,11 @@
+/= form_for @home, :url => { :action => "search"}, :html => {:class => "nifty_form"} do |f|
+/	=f.label "Keyword"
+/	=f.text_field :search
+
+=form_tag search_results_home_path, :method => 'post' do
+	=label_tag :search
+	=text_field_tag "search"
+
+	=submit_tag "search", :class => "btn"
+
+=link_to "Back", home_path, class: "btn btn-primary"

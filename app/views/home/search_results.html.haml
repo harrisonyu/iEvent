@@ -1,0 +1,41 @@
+Searching For:
+=@form
+%br
+%br
+
+Events
+%table.table.table-bordered
+  %thead
+    %tr               
+      %th Name:
+      %th Delete
+  %tbody
+    - @search.each do |e|
+      %tr
+        %td 
+          = link_to e.name, show_event_path(e.id), class: "linkify-td"
+        %td
+          = link_to "Delete", delete_event_path(e.id), class: "btn"
+
+  %br
+
+%br
+People:
+%table.table.table-bordered
+  %thead
+    %tr               
+      %th Name:
+      %th Delete
+  %tbody
+    - @search_person.each do |e|
+      %tr
+        %td 
+          = link_to e.name, show_person_path(e.id), class: "linkify-td"
+        %td
+          = link_to "Delete", delete_person_path(e.id), class: "btn"
+
+  %br
+
+%br
+%br
+= link_to "Back", search_home_path, class: "btn btn-primary"
