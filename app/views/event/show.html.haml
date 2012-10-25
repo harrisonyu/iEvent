@@ -2,7 +2,7 @@
 	<font size = "7">
 	= @event.name
 	Details
-	= link_to "Edit Event Name", update_name_event_path, :class => "btn btn-mini btn-info"
+	= link_to "Edit Event Name", update_name_event_path, :class => "btn btn-mini"
 	</font>
 %br
 %br
@@ -10,7 +10,7 @@
 <font size = "5"> Event Type </font>
 %br
 = @event.event_type
-= link_to "Edit Event Type", update_type_event_path, :class => "btn btn-mini btn-info"
+= link_to "Edit Event Type", update_type_event_path, :class => "btn btn-mini"
 
 %br
 %br
@@ -19,7 +19,7 @@
 <font size = "5"> Event Starting Time </font>
 %br
 = @event.event_start_time.to_s(:long)
-= link_to "Edit Event Start Time", update_start_time_event_path, :class => "btn btn-mini btn-info"
+= link_to "Edit Event Start Time", update_start_time_event_path, :class => "btn btn-mini"
 %br
 %br
 %br
@@ -27,7 +27,7 @@
 <font size = "5"> Event Ending Time </font>
 %br
 = @event.event_end_time.to_s(:long)
-= link_to "Edit Event End Time", update_end_time_event_path, :class => "btn btn-mini btn-info"
+= link_to "Edit Event End Time", update_end_time_event_path, :class => "btn btn-mini"
 %br
 %br
 %br
@@ -35,7 +35,7 @@
 <font size = "5"> Cost to attend</font>
 %br
 = @event.cost
-= link_to "Edit Event Cost", update_cost_event_path, :class => "btn btn-mini btn-info"
+= link_to "Edit Event Cost", update_cost_event_path, :class => "btn btn-mini"
 %br	
 %br
 %br
@@ -44,7 +44,7 @@
 <font size = "5"> Location </font>
 %br
 = @event.location
-= link_to "Edit Event Location", update_location_event_path, :class => "btn btn-mini btn-info"
+= link_to "Edit Event Location", update_location_event_path, :class => "btn btn-mini"
 
 %br
 %br
@@ -54,7 +54,7 @@
 <font size = "5"> Description</font>
 %br
 = @event.description
-= link_to "Edit Event Description", update_description_event_path, :class => "btn btn-mini btn-info"
+= link_to "Edit Event Description", update_description_event_path, :class => "btn btn-mini"
 
 %br
 %br
@@ -63,7 +63,7 @@
 <font size = "5"> Registration Deadline</font>
 %br
 = @event.registration_deadline.to_s(:long)
-= link_to "Edit Event Registration Deadline", update_registration_deadline_event_path, :class => "btn btn-mini btn-info"
+= link_to "Edit Event Registration Deadline", update_registration_deadline_event_path, :class => "btn btn-mini"
 %br
 %br
 %br
@@ -71,7 +71,7 @@
 <font size = "5"> Is there food? </font>
 %br
 = @event.food
-= link_to "Edit Event Food", update_food_event_path, :class => "btn btn-mini btn-info"
+= link_to "Edit Event Food", update_food_event_path, :class => "btn btn-mini"
 
 %br
 %br
@@ -83,7 +83,7 @@
 	%br
 	-
 	=(Host.find_by_event_id(@id)).hostName
-	=link_to "delete", delete_host_path, :class => "btn btn-mini btn-info"
+	=link_to "delete", delete_host_path, :class => "btn btn-mini"
 
 %br
 %br
@@ -95,7 +95,7 @@
 	%br
 	-
 	=(Sponsor.find_by_event_id(@id)).sponsorName
-	=link_to "delete", delete_sponsor_path, :class => "btn btn-mini btn-info"
+	=link_to "delete", delete_sponsor_path, :class => "btn btn-mini"
 
 %br
 %br
@@ -108,7 +108,7 @@
 	%br
 	-
 	=(Speaker.find_by_event_id(@id)).speakerName
-	=link_to "delete", delete_speaker_path, :class => "btn btn-mini btn-info"
+	=link_to "delete", delete_speaker_path, :class => "btn btn-mini"
 
 %br
 %br
@@ -121,7 +121,7 @@
 	%br
 	-
 	=(Artist.find_by_event_id(@id)).artistName
-	=link_to "delete", delete_artist_path, :class => "btn btn-mini btn-info"
+	=link_to "delete", delete_artist_path, :class => "btn btn-mini"
 
 %br
 %br
