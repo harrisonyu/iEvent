@@ -1,0 +1,10 @@
+= form_for @event, :url => { :action => "update_registration_deadline_save"}, :html => {:class => "nifty_form"} do |f|
+	= f.label "New Registration Deadline"
+	= f.datetime_select :registration_deadline, :end_year => Time.now.year+5, :start_year => Time.now.year-2, :order => [:month, :day, :year]
+	%br
+	%br
+
+	=f.submit "Update Registration Deadline", :class => "btn btn-success"
+%br
+%br
+= link_to "Back", show_event_path, :class => "btn btn-primary"

@@ -1,0 +1,24 @@
+
+= form_for @artist, :url => { :action => "create"}, :html => {:class => "nifty_form"} do |f|
+	= f.label "Artist Name"
+	= f.text_field :artistName
+	%br
+	%br
+
+	=f.submit "Add Artist", :class => "btn btn-success"
+
+%br
+<font = 5> Available Artists to Choose From: </font>
+%br
+%br
+-@artists.each do |h|
+	%tr
+		%td
+			= link_to h.name, show_person_path(h.id), class: "linkify-td"
+%br
+%br
+%br
+= link_to "Create New Person", new_person_path, class: "btn"
+%br
+%br
+=link_to "Back", show_event_path, :class => "btn btn-primary"

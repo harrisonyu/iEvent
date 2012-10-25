@@ -1,0 +1,11 @@
+= form_for @event, :url => { :action => "update_cost_save"}, :html => {:class => "nifty_form"} do |f|
+	= f.label "New Cost in Dollars"
+	= f.text_field :cost
+	%br
+	%br
+
+	=f.submit "Update Cost", :class => "btn btn-success"
+
+%br
+%br
+= link_to "Back", show_event_path, :class => "btn btn-primary"

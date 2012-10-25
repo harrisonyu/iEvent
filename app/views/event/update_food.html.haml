@@ -1,0 +1,10 @@
+= form_for @event, :url => { :action => "update_food_save"}, :html => {:class => "nifty_form"} do |f|
+	= f.label "New Food"
+	= f.select :food, ['No','Yes']
+	%br
+	%br
+
+	=f.submit "Update Food", :class => "btn btn-success"
+%br
+%br
+= link_to "Back", show_event_path, :class => "btn btn-primary"

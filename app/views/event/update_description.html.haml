@@ -1,0 +1,10 @@
+= form_for @event, :url => { :action => "update_description_save"}, :html => {:class => "nifty_form"} do |f|
+	= f.label "New Description"
+	= f.text_field :description
+	%br
+	%br
+
+	=f.submit "Update Description", :class => "btn btn-success"
+%br
+%br
+= link_to "Back", show_event_path, :class => "btn btn-primary"

@@ -2,6 +2,8 @@
 = form_for @event, :url => { :action => "create"}, :html => {:class => "nifty_form"} do |f|
 	= f.label :name
 	= f.text_field :name
+	= f.label :event_type
+	= f.text_field :event_type
 	= f.label :event_start_time
 	= f.datetime_select :event_start_time, :end_year => Time.now.year+5, :start_year => Time.now.year-2, :order => [:month, :day, :year]
 	= f.label :event_end_time
@@ -15,7 +17,7 @@
 	= f.label :registration_deadline
 	= f.datetime_select :registration_deadline, :end_year => Time.now.year+5, :start_year => Time.now.year-2, :order => [:month, :day, :year]
 	= f.label :food
-	= f.select :food, ['Yes','No']
+	= f.select :food, ['No','Yes']
 	%br
 	%br
 

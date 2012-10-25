@@ -1,0 +1,36 @@
+Name:
+%br
+=@person.name
+
+=link_to "Update Name", update_name_person_path, class: "btn btn-mini"
+%br
+%br
+Email:
+%br
+=@person.email
+=link_to "Update Email", update_email_person_path, class: "btn btn-mini"
+
+%br
+%br
+Phone Number:
+%br
+=@person.phone
+=link_to "Update Phone Number", update_phone_person_path, class: "btn btn-mini"
+
+%br
+%br
+Address:
+%br
+=@person.address
+=link_to "Update Address", update_address_person_path, class: "btn btn-mini"
+
+
+%br
+%br
+
+=link_to "Delete", delete_person_path, class: "btn btn-mini"
+%br
+%br
+
+%br
+= link_to "Back", new_host_path, class: "btn btn-primary"

@@ -1,0 +1,11 @@
+= form_for @person, :url => { :action => "update_address_save"}, :html => {:class => "nifty_form"} do |f|
+	= f.label "New Address"
+	= f.text_field :address
+	%br
+	%br
+
+	=f.submit "Update Address", :class => "btn btn-success"
+
+%br
+%br
+= link_to "Back", show_person_path, :class => "btn btn-primary"

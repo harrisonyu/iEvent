@@ -4,6 +4,11 @@
 %br
 %br
 
+
+= link_to "Search", search_query_home_path, class: "btn btn-success"
+%br
+%br
+
 %table.table.table-bordered
   %thead
     %tr               
@@ -20,6 +25,19 @@
   %br
 
 
+%br
+<font = 5> Available People to Choose From: </font>
+%br
+%br
+-@persons.each do |h|
+  %tr
+    %td
+      = link_to h.name, show_person_path(h.id), class: "linkify-td"
+%br
+%br
+%br
+= link_to "Create New Person", new_person_path, class: "btn"
+%br
 %br
 %br
 =link_to "Back", root_path, class: "btn btn-primary"

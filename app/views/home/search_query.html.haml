@@ -1,0 +1,6 @@
+
+
+Fix search
+/= form_for @home, :url => { :action => "search_query"}, :html => {:class => "nifty_form"} do |f|
+/	=f.label "Keyword"
+/	=f.text_field :search

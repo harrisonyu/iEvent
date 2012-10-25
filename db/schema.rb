@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121024102442) do
+ActiveRecord::Schema.define(:version => 20121025021409) do
+
+  create_table "artists", :force => true do |t|
+    t.integer  "event_id"
+    t.string   "artistName"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "events", :force => true do |t|
     t.string   "name"
@@ -23,28 +30,38 @@ ActiveRecord::Schema.define(:version => 20121024102442) do
     t.datetime "registration_deadline"
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
-    t.string   "type"
     t.string   "food"
+    t.string   "event_type"
+  end
+
+  create_table "hosts", :force => true do |t|
+    t.integer  "event_id"
+    t.string   "hostName"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "people", :force => true do |t|
-    t.integer  "people_id"
     t.string   "email"
     t.integer  "phone"
     t.string   "address"
-    t.integer  "event_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "name"
   end
 
-  create_table "teams", :force => true do |t|
-    t.integer  "team_id"
-    t.string   "team_name"
-    t.string   "home"
-    t.string   "sport"
+  create_table "speakers", :force => true do |t|
     t.integer  "event_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "speakerName"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "sponsors", :force => true do |t|
+    t.integer  "event_id"
+    t.string   "sponsorName"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
 end
