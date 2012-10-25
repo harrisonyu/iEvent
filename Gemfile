@@ -6,7 +6,14 @@ gem 'rails', '3.2.1'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 /gem 'sqlite3'/
-gem 'pg'
+group :development, :test do
+  gem 'sqlite3'
+end
+group :production do
+  gem 'pg'
+  gem 'thin'
+end
+gem 'heroku'
 gem 'haml'
 gem 'haml-rails', '>=0.3.4', :group => :development
 #gem 'bootstrap-sass'
