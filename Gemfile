@@ -6,6 +6,10 @@ gem 'rails', '3.2.1'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 /gem 'sqlite3'/
+
+gem 'omniauth'
+gem 'omniauth-facebook'
+
 group :development, :test do
   gem 'sqlite3'
 end

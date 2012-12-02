@@ -13,7 +13,12 @@
             %li= link_to "iEvent", root_path
           %nav
           %ul.nav.pull-right
-            %li= link_to "Home", home_path
+            -if signed_in?
+              %li= link_to "Home", home_path
+            - if current_user
+              %li= link_to "Sign out", signout_path
+            - else
+              %li= link_to "Sign in", signin_path
             %li= link_to "About iEvent", about_path
     .container
       - if flash[:notice]

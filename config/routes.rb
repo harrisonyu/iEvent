@@ -4,6 +4,13 @@ Temp::Application.routes.draw do
     match '/home' => 'home#index', :as => :home
     match '/home/about' => 'home#about', :as => :about
 
+
+    match '/auth/:provider/callback'  => 'sessions#create'
+    match '/auth/failure'             => 'sessions#failure'
+    match '/signout'                  => 'sessions#destroy',  :as => :signout
+    match '/signin'                   => 'sessions#new',      :as => :signin
+
+
     get   '/home/event/new'         => 'event#new',     :as => :new_event
     post  '/home/event/create'      => 'event#create',  :as => :create_event
     get   '/home/event/:id'         => 'event#show',    :as => :show_event
