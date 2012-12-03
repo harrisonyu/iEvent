@@ -15,6 +15,7 @@
           %ul.nav.pull-right
             -if signed_in?
               %li= link_to "Home", home_path
+              %li= link_to "MyEvents", show_myevent_path
             - if current_user
               %li= link_to "Sign out", signout_path
             - else

@@ -13,6 +13,7 @@ class EventController < ApplicationController
 		@event = Event.new
 	end
 
+
 	def create
 		@id = params[:id]
 		@form = params[:event]
@@ -238,11 +239,18 @@ class EventController < ApplicationController
 	def delete
 		@id = params[:id]
 		@event = Event.find_by_id(@id)
+		@myevent = Myevent.find_all_by_event_id(@id)
 		if !@event
 			flash[:warning] = "Event does not exist."
 		else
 			@event.destroy
 			flash[:notice] = "#{@event.name} has been deleted."
+			if !@myevent
+			else
+				@myevent.each do |e|
+					e.destroy
+				end
+			end
 		end
 		redirect_to home_path and return
 	end

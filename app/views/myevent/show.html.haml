@@ -1,0 +1,22 @@
+MyEvents
+
+%table.table.table-bordered
+  %thead
+    %tr               
+      %th Name:
+      %th Remove from MyEvents
+  %tbody
+    - @myevents.each do |e|
+      %tr
+        %td 
+          - @event = Event.find(e.event_id)
+          = link_to @event.name, show_event_path(@event.id), class: "linkify-td"
+        %td
+          = link_to "Remove from MyEvents", remove_myevent_path(e.id), class: "btn"
+  %br
+
+%br
+%br
+%br
+
+= link_to "Back", home_path, :class => "btn btn-primary"

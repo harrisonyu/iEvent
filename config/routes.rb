@@ -34,6 +34,11 @@ Temp::Application.routes.draw do
     get   '/home/event/:id/update_food' => 'event#update_food', :as => :update_food_event
     post  '/home/event/:id/update_food_save' => 'event#update_food_save', :as => :update_food_save_event
 
+
+    get   '/home/myevent/show'  => 'myevent#show',   :as => :show_myevent
+    get  '/home/myevent/add/:id' => 'myevent#add',   :as => :add_myevent
+    get   '/home/myevent/remove/:id' =>  'myevent#remove', :as => :remove_myevent 
+
     get   '/home/search' => 'home#search', :as => :search_home
     post  '/home/search_results' => 'home#search_results', :as => :search_results_home
 
