@@ -47,17 +47,17 @@ require 'open-uri'
         desc = eventsource.css("div.description-row").text.to_s
 
         for i in 0..a.length-1
-            if a[i].text.to_s == "Date " date = b[i].text.to_s
-            elseif a[i].text.to_s == "Location " location = b[i].text.to_s
-            elseif a[i].text.to_s == "Sponsor " sponsor = b[i].text.to_s
-            elseif a[i].text.to_s == "Speaker " speaker = b[i].text.to_s
-            elseif a[i].text.to_s == "Time " time = b[i].text.to_s
-            elseif a[i].text.to_s == "Event type " eventtype = b[i].text.to_s
-            elseif a[i].text.to_s == "Cost " cost = b[i].text.to_s
+            a[i].text.to_s == "Date " ? date = b[i].text.to_s : date = ""
+            a[i].text.to_s == "Location " ? location = b[i].text.to_s : location = ""
+            a[i].text.to_s == "Sponsor " ? sponsor = b[i].text.to_s : sponsor = ""
+            a[i].text.to_s == "Speaker " ? speaker = b[i].text.to_s : speaker = ""
+            a[i].text.to_s == "Time " ? time = b[i].text.to_s : time = ""
+            a[i].text.to_s == "Event type " ? eventtype = b[i].text.to_s : eventtype = ""
+            a[i].text.to_s == "Cost " ? cost = b[i].text.to_s : cost = ""
 
-            # to satisfy validates_precense of 
-            if eventtype == "" eventtype = "UIUC"
-            if location == "" location = "N/A"
+            # to satisfy validates_precense of, i'm not sure how to make ruby do nothing so i just assigned it back to itself
+            eventtype == "" ? eventtype = "UIUC" : eventtype = eventtype
+            location == "" ? location = "N/A" : location = location
         end
 
         # to remove html tags ------ gsub!(/(<[^>]*>)|\n|\t/s) {""}
