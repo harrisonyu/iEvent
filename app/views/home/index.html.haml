@@ -4,7 +4,8 @@
 %br
 %br
 
-= link_to "Search", search_home_path, class: "btn btn-success"
+/= link_to "Search", search_home_path, class: "btn btn-inverse"
+%br
 %br
 %br
 
@@ -20,8 +21,7 @@
           = link_to e.name, show_event_path(e.id), class: "linkify-td"
         %td
           = link_to "Add to MyEvents", add_myevent_path(e.id), class: "btn"
-          
-  %br
+%br
 
 
 %br
@@ -40,3 +40,8 @@
 %br
 %br
 =link_to "Back", root_path, class: "btn btn-primary"
+%br
+%br
+%br
+%br
+%br

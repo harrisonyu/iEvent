@@ -7,8 +7,15 @@ class MyeventController < ApplicationController
 			flash[:warning] = "Event does not exist."
 		else
 		end
-		if Myevent.find_by_event_id(@event) && Myevent.find_by_user_id(current_user.id)
-			flash[:warning] = "Event has already been added"
+		@temp_event = Myevent.find_all_by_event_id(@event)
+		@flags = 1
+		@temp_event.each do |e|
+			if e.user_id == current_user.id
+				@flags = 0
+			end
+		end
+		if @flags == 0
+			flash[:warning] = "Event already exists in my events."
 		else
 			@myevent.event_id = @id
 			@myevent.user_id = current_user.id
@@ -41,6 +48,6 @@ class MyeventController < ApplicationController
 			@myevent.destroy
 			flash[:notice] = 'Event has been removed from your events'
 		end
-		redirect_to myevent_show_path and return
+		redirect_to show_myevent_path and return
 	end
 end

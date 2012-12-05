@@ -1,0 +1,74 @@
+%h2
+  <font size = "5">
+  Recommendations based on my events
+  </font>
+  %br
+  %br
+/Recommends based on event types, event locations, and Hosts, Artists, Speakers, and Sponsors
+%table.table.table-bordered
+  %thead
+    %tr
+      %th Name:
+      %th Add to MyEvents
+      %th Recommended Based on This Event
+  %tbody
+    - @myevents.each do |e|
+      - @event = Event.find(e.event_id)
+      - @my_events_recommendation = Event.find(:all, :conditions => ['event_type LIKE? OR location LIKE?', @event.event_type, @event.location])
+      - @my_events_recommendation.each do |f|
+        -if !Myevent.find_by_event_id(f.id) || !Myevent.find_by_user_id(current_user.id)
+          %tr
+            %td
+              = link_to f.name, show_event_path(f.id), class: "linkify-td"
+            %td
+              = link_to "Add to MyEvents", add_myevent_path(f.id), class: "btn"
+            %td
+              = @event.name
+
+%br
+%br
+/@my_host_recommendation = Host.find(:all, :conditions => ['hostName LIKE?'], @name)
+/@my_artists_recommendation = Artist.find(:all, :conditions => ['hostName LIKE?'], @name)
+/@my_speakers_recommendation = Speaker.find(:all, :conditions => ['hostName LIKE?'], @name)
+/@my_sponsors_recommendation = Sponsor.find(:all, :conditions => ['hostName LIKE?'], @name)
+%h2
+  <font size = "5">
+  Recommendations based on other user's events
+  </font>
+  %br
+  %br
+%table.table.table-bordered
+  %thead
+    %tr
+      %th Name:
+      %th Add to MyEvents
+      %th Recommended Based on This User
+  %tbody
+    - @myevents.each do |e|
+      - @other_events_recommendation = Myevent.find_all_by_event_id(e.event_id)
+      - @other_events_recommendation.each do |f|
+        - @other_user_my_events = Myevent.find_all_by_user_id(f.user_id)
+        - @other_user_my_events.each do |g|
+          - @event = Event.find(g.event_id)
+          - @temp_event = Myevent.find_all_by_event_id(@event)
+          - @flags = 1
+          - @temp_event.each do |e|
+            -if e.user_id == current_user.id
+              - @flags = 0
+          - if @flags == 1
+            %tr
+              %td
+                = link_to @event.name, show_event_path(@event.id), class: "linkify-td"
+              %td
+                = link_to "Add to MyEvents", add_myevent_path(@event.id), class: "btn"
+              %td
+                = User.find_by_id(g.user_id).name
+
+%br
+%br
+= link_to "Back", home_path, class: "btn btn-primary"
+%br
+%br
+%br
+%br
+%br

@@ -39,6 +39,7 @@ Temp::Application.routes.draw do
     get  '/home/myevent/add/:id' => 'myevent#add',   :as => :add_myevent
     get   '/home/myevent/remove/:id' =>  'myevent#remove', :as => :remove_myevent 
 
+    get  '/home/my_recommendation'  => 'home#my_recommendation', :as => :my_recommendation_home
     get   '/home/search' => 'home#search', :as => :search_home
     post  '/home/search_results' => 'home#search_results', :as => :search_results_home
 

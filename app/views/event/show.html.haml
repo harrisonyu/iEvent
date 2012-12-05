@@ -147,14 +147,14 @@
 %br
 
 -if current_user.id == @event.createdby_user_id
-	= link_to "Delete Event", delete_event_path(@id), :class => "btn"
+	= link_to "Delete Event", delete_event_path(@id), :class => "btn btn-danger"
 
 %br
 %br
 %br
 
 = link_to "Back", home_path, :class => "btn btn-primary"
-
+%br
 %br
 %br
 %br

@@ -8,14 +8,14 @@ Events
   %thead
     %tr               
       %th Name:
-      %th Delete
+      %th Add to My Events:
   %tbody
     - @search.each do |e|
       %tr
         %td 
           = link_to e.name, show_event_path(e.id), class: "linkify-td"
         %td
-          = link_to "Delete", delete_event_path(e.id), class: "btn"
+          = link_to "Add to My Events", add_myevent_path(e.id), class: "btn"
 
   %br
 
@@ -25,17 +25,22 @@ People:
   %thead
     %tr               
       %th Name:
-      %th Delete
+      %th Add to My Events:
   %tbody
     - @search_person.each do |e|
       %tr
         %td 
           = link_to e.name, show_person_path(e.id), class: "linkify-td"
         %td
-          = link_to "Delete", delete_person_path(e.id), class: "btn"
+          = link_to "Add to My Events", add_myevent_path(e.id), class: "btn"
 
   %br
 
 %br
 %br
 = link_to "Back", search_home_path, class: "btn btn-primary"
+%br
+%br
+%br
+%br
+%br

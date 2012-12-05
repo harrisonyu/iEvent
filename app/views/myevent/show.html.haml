@@ -1,19 +1,23 @@
-MyEvents
+%h2
+  <font size = "6">
+  My Events
+  </font>
+%br
+%br
 
 %table.table.table-bordered
   %thead
-    %tr               
+    %tr
       %th Name:
       %th Remove from MyEvents
   %tbody
     - @myevents.each do |e|
       %tr
         %td 
-          - @event = Event.find(e.event_id)
+          - @event = Event.find_by_id(e.event_id)
           = link_to @event.name, show_event_path(@event.id), class: "linkify-td"
         %td
           = link_to "Remove from MyEvents", remove_myevent_path(e.id), class: "btn"
-  %br
 
 %br
 %br

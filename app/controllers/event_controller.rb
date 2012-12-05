@@ -15,7 +15,6 @@ class EventController < ApplicationController
 
 
 	def create
-#		@id = params[:id]
 		@form = params[:event]
 		@event = Event.new
 		@event.name = @form[:name]
@@ -32,7 +31,7 @@ class EventController < ApplicationController
 			flash[:notice] = "#{@event.name} has been made."
 			redirect_to home_path and return
 		else
-			flash[:warning] = "Invalid event, try again."
+			flash[:warning] = "Invalid event, try again. Make sure to fill out a Name, Event Type, and Location."
 			redirect_to new_event_path and return
 		end
 	end
