@@ -13,7 +13,6 @@
     %tr               
       %th Name:
       %th Add to MyEvents
-      %th Delete
   %tbody
     - @events.each do |e|
       %tr
@@ -21,9 +20,7 @@
           = link_to e.name, show_event_path(e.id), class: "linkify-td"
         %td
           = link_to "Add to MyEvents", add_myevent_path(e.id), class: "btn"
-        %td
-          = link_to "Delete", delete_event_path(e.id), class: "btn"
-
+          
   %br
 
 

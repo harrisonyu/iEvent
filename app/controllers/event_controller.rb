@@ -15,7 +15,7 @@ class EventController < ApplicationController
 
 
 	def create
-		@id = params[:id]
+#		@id = params[:id]
 		@form = params[:event]
 		@event = Event.new
 		@event.name = @form[:name]
@@ -27,6 +27,7 @@ class EventController < ApplicationController
 		@event.registration_deadline = DateTime.new( @form["registration_deadline(1i)"].to_i, @form["registration_deadline(2i)"].to_i, @form["registration_deadline(3i)"].to_i, @form["registration_deadline(4i)"].to_i, @form["registration_deadline(5i)"].to_i, 0)
 		@event.food = @form[:food]
 		@event.event_type = @form[:event_type]
+		@event.createdby_user_id = current_user.id
 		if @event.save
 			flash[:notice] = "#{@event.name} has been made."
 			redirect_to home_path and return

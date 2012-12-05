@@ -7,7 +7,7 @@ class MyeventController < ApplicationController
 			flash[:warning] = "Event does not exist."
 		else
 		end
-		if Myevent.find_by_event_id(@event)
+		if Myevent.find_by_event_id(@event) && Myevent.find_by_user_id(current_user.id)
 			flash[:warning] = "Event has already been added"
 		else
 			@myevent.event_id = @id

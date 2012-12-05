@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   attr_protected :name, :email
-  has_many :myevent
+  has_many :myevents
+  has_many :events
   
   def self.create_with_omniauth(auth)
     create! do |user|
