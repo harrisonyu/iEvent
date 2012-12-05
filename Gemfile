@@ -17,7 +17,8 @@ gem 'sqlite3'
 #  gem 'pg'
 # gem 'thin'
 #end
-gem 'heroku'
+#gem 'heroku'
+gem 'rhc'
 gem 'haml'
 gem 'haml-rails', '>=0.3.4', :group => :development
 #gem 'bootstrap-sass'
