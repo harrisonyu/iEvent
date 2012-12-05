@@ -10,13 +10,13 @@ gem 'rails', '3.2.1'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
-group :development, :test do
-  gem 'sqlite3'
-end
-group :production do
-  gem 'pg'
-  gem 'thin'
-end
+#group :development, :test do
+gem 'sqlite3'
+#end
+#group :production do
+#  gem 'pg'
+# gem 'thin'
+#end
 gem 'heroku'
 gem 'haml'
 gem 'haml-rails', '>=0.3.4', :group => :development
