@@ -4,7 +4,7 @@
   </font>
   %br
   %br
-/Recommends based on event types, event locations, and Hosts, Artists, Speakers, and Sponsors
+/Recommends based on event types and event locations
 %table.table.table-bordered
   %thead
     %tr
@@ -27,10 +27,7 @@
 
 %br
 %br
-/@my_host_recommendation = Host.find(:all, :conditions => ['hostName LIKE?'], @name)
-/@my_artists_recommendation = Artist.find(:all, :conditions => ['hostName LIKE?'], @name)
-/@my_speakers_recommendation = Speaker.find(:all, :conditions => ['hostName LIKE?'], @name)
-/@my_sponsors_recommendation = Sponsor.find(:all, :conditions => ['hostName LIKE?'], @name)
+
 %h2
   <font size = "5">
   Recommendations based on other user's events
