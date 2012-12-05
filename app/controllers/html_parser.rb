@@ -37,23 +37,24 @@ require 'open-uri'
 
         # declare vars outside loop for access
         name = eventsource.css('div#event-wrapper h2').text.to_s.gsub!(/(<[^>]*>)|\n|\t/s) {""}
-        date = " "
-        location = " "
-        sponsor = " "
-        speaker = " "
-        time = " "
-        eventtype = " "
-        cost = " "
+        date = ""
+        location = ""
+        sponsor = ""
+        speaker = ""
+        time = ""
+        eventtype = ""
+        cost = ""
         desc = eventsource.css("div.description-row").text.to_s
 
+        # assigns attributes to their respective values
         for i in 0..a.length-1
-            a[i].text.to_s == "Date " ? date = b[i].text.to_s : date = ""
-            a[i].text.to_s == "Location " ? location = b[i].text.to_s : location = ""
-            a[i].text.to_s == "Sponsor " ? sponsor = b[i].text.to_s : sponsor = ""
-            a[i].text.to_s == "Speaker " ? speaker = b[i].text.to_s : speaker = ""
-            a[i].text.to_s == "Time " ? time = b[i].text.to_s : time = ""
-            a[i].text.to_s == "Event type " ? eventtype = b[i].text.to_s : eventtype = ""
-            a[i].text.to_s == "Cost " ? cost = b[i].text.to_s : cost = ""
+            a[i].text.to_s == "Date " ? date = b[i].text.to_s : date = date
+            a[i].text.to_s == "Location " ? location = b[i].text.to_s : location = location
+            a[i].text.to_s == "Sponsor " ? sponsor = b[i].text.to_s : sponsor = sponsor
+            a[i].text.to_s == "Speaker " ? speaker = b[i].text.to_s : speaker = speaker
+            a[i].text.to_s == "Time " ? time = b[i].text.to_s : time = time
+            a[i].text.to_s == "Event type " ? eventtype = b[i].text.to_s : eventtype = eventtype
+            a[i].text.to_s == "Cost " ? cost = b[i].text.to_s : cost = cost
 
             # to satisfy validates_precense of, i'm not sure how to make ruby do nothing so i just assigned it back to itself
             eventtype == "" ? eventtype = "UIUC" : eventtype = eventtype
