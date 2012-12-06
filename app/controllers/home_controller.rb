@@ -25,6 +25,6 @@ class HomeController < ApplicationController
 
   def my_recommendation
     @myevents = Myevent.find_all_by_user_id(current_user.id)
-    
+
   end
 end

@@ -8,150 +8,158 @@
 %br
 %br
 
-<font size = "5"> Event Type </font>
-%br
-= @event.event_type
--if current_user.id == @event.createdby_user_id
-	= link_to "Edit Event Type", update_type_event_path, :class => "btn btn-mini"
-%br
-%br
-%br
+-if @event.event_type != nil || current_user.id == @event.createdby_user_id
+	<font size = "5"> Event Type </font>
+	%br
+	-if @event.event_type != nil
+		= @event.event_type
+	-if current_user.id == @event.createdby_user_id
+		= link_to "Edit Event Type", update_type_event_path, :class => "btn btn-mini"
+	%br
+	%br
+	%br
 
-<font size = "5"> Event Starting Time </font>
-%br
-= @event.event_start_time.to_s(:long)
--if current_user.id == @event.createdby_user_id
-	= link_to "Edit Event Start Time", update_start_time_event_path, :class => "btn btn-mini"
-%br
-%br
-%br
+-if @event.event_start_time != nil || current_user.id == @event.createdby_user_id
+	<font size = "5"> Event Start Date </font>
+	%br
+	-if @event.event_start_time != nil
+		= @event.event_start_time.to_s(:long)
+	-if current_user.id == @event.createdby_user_id
+		= link_to "Edit Event Start Time", update_start_time_event_path, :class => "btn btn-mini"
+	%br
+	%br
+	%br
 
-<font size = "5"> Event Ending Time </font>
-%br
-= @event.event_end_time.to_s(:long)
--if current_user.id == @event.createdby_user_id
-	= link_to "Edit Event End Time", update_end_time_event_path, :class => "btn btn-mini"
-%br
-%br
-%br
+-if @event.event_end_time != nil || current_user.id == @event.createdby_user_id
+	<font size = "5"> Event End Date </font>
+	%br
+	-if @event.event_end_time != nil
+		= @event.event_end_time.to_s(:long)
+	-if current_user.id == @event.createdby_user_id
+		= link_to "Edit Event End Time", update_end_time_event_path, :class => "btn btn-mini"
+	%br
+	%br
+	%br
 
-<font size = "5"> Cost to attend</font>
-%br
-= @event.cost
--if current_user.id == @event.createdby_user_id
-	= link_to "Edit Event Cost", update_cost_event_path, :class => "btn btn-mini"
-%br	
-%br
-%br
+-if @event.cost != nil || current_user.id == @event.createdby_user_id
+	<font size = "5"> Cost to attend</font>
+	%br
+	-if @event.cost != nil
+		= @event.cost
+	-if current_user.id == @event.createdby_user_id
+		= link_to "Edit Event Cost", update_cost_event_path, :class => "btn btn-mini"
+	%br	
+	%br
+	%br
 
-/-if @event.location != ""
-<font size = "5"> Location </font>
-%br
-= @event.location
--if current_user.id == @event.createdby_user_id
-	= link_to "Edit Event Location", update_location_event_path, :class => "btn btn-mini"
-%br
-%br
-%br
+-if @event.location != nil || current_user.id == @event.createdby_user_id
+	<font size = "5"> Location </font>
+	%br
+	-if @event.location != nil
+		= @event.location
+	-if current_user.id == @event.createdby_user_id
+		= link_to "Edit Event Location", update_location_event_path, :class => "btn btn-mini"
+	%br
+	%br
+	%br
 
-/-if @event.description != ""
-<font size = "5"> Description</font>
-%br
-= @event.description
--if current_user.id == @event.createdby_user_id
-	= link_to "Edit Event Description", update_description_event_path, :class => "btn btn-mini"
-%br
-%br
-%br
+-if @event.description != nil || current_user.id == @event.createdby_user_id
+	<font size = "5"> Description</font>
+	%br
+	-if @event.description != nil
+		= @event.description
+	-if current_user.id == @event.createdby_user_id
+		= link_to "Edit Event Description", update_description_event_path, :class => "btn btn-mini"
+	%br
+	%br
+	%br
 
-<font size = "5"> Registration Deadline</font>
-%br
-= @event.registration_deadline.to_s(:long)
--if current_user.id == @event.createdby_user_id
-	= link_to "Edit Event Registration Deadline", update_registration_deadline_event_path, :class => "btn btn-mini"
-%br
-%br
-%br
+-if @event.registration_deadline != nil || current_user.id == @event.createdby_user_id
+	<font size = "5"> Registration Deadline</font>
+	%br
+	-if @event.registration_deadline != nil
+		= @event.registration_deadline.to_s(:long)
+	-if current_user.id == @event.createdby_user_id
+		= link_to "Edit Event Registration Deadline", update_registration_deadline_event_path, :class => "btn btn-mini"
+	%br
+	%br
+	%br
 
-<font size = "5"> Is there food? </font>
-%br
-= @event.food
--if current_user.id == @event.createdby_user_id
-	= link_to "Edit Event Food", update_food_event_path, :class => "btn btn-mini"
+-if @event.food != nil || current_user.id == @event.createdby_user_id
+	<font size = "5"> Is there food? </font>
+	%br
+	-if @event.food != nil
+		= @event.food
+	-if current_user.id == @event.createdby_user_id
+		= link_to "Edit Event Food", update_food_event_path, :class => "btn btn-mini"
+	%br
+	%br
+	%br
 
-%br
-%br
-%br
-
-/need to print out multiple hosts
 -if Host.find_by_event_id(@id) != nil
 	<font size = "5"> Host</font>
 	%br
-	-
-	=(Host.find_by_event_id(@id)).hostName
-	-if current_user.id == @event.createdby_user_id
-		=link_to "delete", delete_host_path, :class => "btn btn-mini"
+	-@host = Host.find_all_by_event_id(@id)
+	-@host.each do |h|
+		= h.hostName
+		-if current_user.id == @event.createdby_user_id
+			=link_to "delete", delete_host_path, :class => "btn btn-mini"
+		%br
+	%br
+	%br
 
-%br
-%br
-%br
-
-/need to print out multiple sponsors
 -if Sponsor.find_by_event_id(@id) != nil
 	<font size = "5"> Sponsor</font>
 	%br
-	-
-	=(Sponsor.find_by_event_id(@id)).sponsorName
-	-if current_user.id == @event.createdby_user_id
-		=link_to "delete", delete_sponsor_path, :class => "btn btn-mini"
+	-@sponsor = Sponsor.find_all_by_event_id(@id)
+	-@sponsor.each do |s|
+		=s.sponsorName
+		-if current_user.id == @event.createdby_user_id
+			=link_to "delete", delete_sponsor_path, :class => "btn btn-mini"
+		%br
+	%br
+	%br
 
-%br
-%br
-%br
 
-
-/need to print out multiple speakers
 -if Speaker.find_by_event_id(@id) != nil
 	<font size = "5"> Speaker</font>
 	%br
-	-
-	=(Speaker.find_by_event_id(@id)).speakerName
-	-if current_user.id == @event.createdby_user_id
-		=link_to "delete", delete_speaker_path, :class => "btn btn-mini"
+	-@speaker = Speaker.find_all_by_event_id(@id)
+	-@speaker.each do |f|
+		=f.speakerName
+		-if current_user.id == @event.createdby_user_id
+			=link_to "delete", delete_speaker_path, :class => "btn btn-mini"
+		%br
+	%br
+	%br
 
-%br
-%br
-%br
 
-
-/need to print out multiple artist
 -if Artist.find_by_event_id(@id) != nil
 	<font size = "5"> Artist</font>
 	%br
-	-
-	=(Artist.find_by_event_id(@id)).artistName
-	-if current_user.id == @event.createdby_user_id
-		=link_to "delete", delete_artist_path, :class => "btn btn-mini"
-
-%br
-%br
-%br
+	-@artist = Artist.find_all_by_event_id(@id)
+	-@artist.each do |a|
+		=a.artistName
+		-if current_user.id == @event.createdby_user_id
+			=link_to "delete", delete_artist_path, :class => "btn btn-mini"
+		%br
+	%br
+	%br
 
 -if current_user.id == @event.createdby_user_id
 	= link_to "Add Host", new_host_path, :class => "btn"
 	= link_to "Add Sponsor", new_sponsor_path, :class => "btn"
 	= link_to "Add Speaker", new_speaker_path, :class => "btn"
 	= link_to "Add Artist", new_artist_path, :class => "btn"
-%br
-%br
-%br
+	%br
+	%br
+	%br
 
--if current_user.id == @event.createdby_user_id
+-if 1#current_user.id == @event.createdby_user_id || current_user.id == 1
 	= link_to "Delete Event", delete_event_path(@id), :class => "btn btn-danger"
-
-%br
-%br
-%br
+	%br
+	%br
+	%br
 
 = link_to "Back", home_path, :class => "btn btn-primary"
 %br

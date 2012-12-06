@@ -5,9 +5,9 @@
 	= f.label :event_type
 	= f.text_field :event_type
 	= f.label :event_start_time
-	= f.datetime_select :event_start_time, :end_year => Time.now.year+5, :start_year => Time.now.year-2, :order => [:month, :day, :year]
+	= f.date_select :event_start_time, :end_year => Time.now.year+5, :start_year => Time.now.year-2, :order => [:month, :day, :year]
 	= f.label :event_end_time
-	= f.datetime_select :event_end_time, :end_year => Time.now.year+5, :start_year => Time.now.year-2, :order => [:month, :day, :year]
+	= f.date_select :event_end_time, :end_year => Time.now.year+5, :start_year => Time.now.year-2, :order => [:month, :day, :year]
 	= f.label "Cost in dollars"
 	= f.text_field	:cost
 	= f.label :location
@@ -15,7 +15,7 @@
 	= f.label :description
 	= f.text_field :description
 	= f.label :registration_deadline
-	= f.datetime_select :registration_deadline, :end_year => Time.now.year+5, :start_year => Time.now.year-2, :order => [:month, :day, :year]
+	= f.date_select :registration_deadline, :end_year => Time.now.year+5, :start_year => Time.now.year-2, :order => [:month, :day, :year]
 	= f.label :food
 	= f.select :food, ['No','Yes']
 	%br

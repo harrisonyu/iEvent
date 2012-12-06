@@ -10,6 +10,7 @@ Temp::Application.routes.draw do
     match '/signout'                  => 'sessions#destroy',  :as => :signout
     match '/signin'                   => 'sessions#new',      :as => :signin
 
+    get   '/home/event/web_crawler'  => 'event#web_crawler',   :as => :web_crawler_event
 
     get   '/home/event/new'         => 'event#new',     :as => :new_event
     post  '/home/event/create'      => 'event#create',  :as => :create_event

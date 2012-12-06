@@ -10,6 +10,7 @@ gem 'rails', '3.2.1'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
+gem 'nokogiri'
 #group :development, :test do
   gem 'sqlite3'
 #end

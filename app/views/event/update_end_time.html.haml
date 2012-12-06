@@ -1,10 +1,10 @@
 = form_for @event, :url => { :action => "update_end_time_save"}, :html => {:class => "nifty_form"} do |f|
-	= f.label "New End Time"
-	= f.datetime_select :event_end_time, :end_year => Time.now.year+5, :start_year => Time.now.year-2, :order => [:month, :day, :year]
+	= f.label "New End Date"
+	= f.date_select :event_end_time, :end_year => Time.now.year+5, :start_year => Time.now.year-2, :order => [:month, :day, :year]
 	%br
 	%br
 
-	=f.submit "Update End Time", :class => "btn btn-success"
+	=f.submit "Update End Date", :class => "btn btn-success"
 %br
 %br
 = link_to "Back", show_event_path, :class => "btn btn-primary"
