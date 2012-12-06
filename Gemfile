@@ -11,14 +11,14 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 
 gem 'nokogiri'
-#group :development, :test do
+group :development, :test do
   gem 'sqlite3'
-#end
-#group :production do
-#  gem 'pg'
-#  gem 'thin'
-#end
-#gem 'heroku'
+end
+group :production do
+  gem 'pg'
+  gem 'thin'
+end
+gem 'heroku'
 gem 'haml'
 gem 'haml-rails', '>=0.3.4', :group => :development
 #gem 'bootstrap-sass'

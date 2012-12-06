@@ -25,16 +25,33 @@ People:
   %thead
     %tr               
       %th Name:
-      %th Add to My Events:
   %tbody
     - @search_person.each do |e|
       %tr
         %td 
           = link_to e.name, show_person_path(e.id), class: "linkify-td"
-        %td
-          = link_to "Add to My Events", add_myevent_path(e.id), class: "btn"
-
   %br
+
+%br
+Natural Join of Sponsors and Events (Based on the search for the name of the sponsor):
+%br
+Note: Did not print out all of the Event or the Sponsor's Information. Click on the Name for more information.
+%table.table.table-bordered
+  %thead
+    %tr               
+      %th Name of Sponsor:
+      %th Event Names:
+  %tbody
+    - @join.each do |e|
+      - @x = Event.find_by_id(e.event_id)
+      %tr
+        %td 
+          = link_to e.sponsorName, show_person_path(e.id), class: "linkify-td"
+        %td
+          = link_to @x.name, show_event_path(@x.id), class: "linkify-td"
+          &nbsp;
+        %td
+          = link_to "Add to My Events", add_myevent_path(@x.id), class: "btn"
 
 %br
 %br
