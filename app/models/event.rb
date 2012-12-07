@@ -4,9 +4,9 @@ class Event < ActiveRecord::Base
 	validates_uniqueness_of :name
 
 	belongs_to :user
-	has_many :myevent
-	has_many :hostedBy
-	has_many :speaker
-	has_many :artist
-	has_many :sponsoredBy
+	has_many :myevents
+	has_many :hosts
+	has_many :speakers
+	has_many :artists
+	has_many :sponsors
 end
