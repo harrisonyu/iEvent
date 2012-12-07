@@ -43,16 +43,17 @@ Note: Did not print out all of the Event or the Sponsor's Information. Click on 
       %th Event Names:
   %tbody
     - @join.each do |e|
-      - @x = Sponsor.find_by_sponsorName(e.name)
-      - @y = Event.find_by_id(@x.event_id)
-      %tr
-        %td 
-          = link_to e.name, show_person_path(e.id), class: "linkify-td"
-        %td
-          = link_to @y.name, show_event_path(@y.id), class: "linkify-td"
-          &nbsp;
-        %td
-          = link_to "Add to My Events", add_myevent_path(@y.id), class: "btn"
+      - @x = Sponsor.find_all_by_sponsorName(e.name)
+      - @x.each do |z|
+        - @y = Event.find_by_id(z.event_id)
+        %tr
+          %td 
+            = link_to e.name, show_person_path(e.id), class: "linkify-td"
+          %td
+            = link_to @y.name, show_event_path(@y.id), class: "linkify-td"
+            &nbsp;
+          %td
+            = link_to "Add to My Events", add_myevent_path(@y.id), class: "btn"
 
 %br
 %br
