@@ -125,6 +125,10 @@ class PersonController < ApplicationController
 		if !@person
 			flash[:warning] = "Invalid Person"
 		else
+			@sponsor = Sponsor.find_by_sponsorName(@person.name)
+			if @sponsor
+				@sponsor.destroy
+			end
 			@person.destroy
 			flash[:notice] = "Person has been deleted"
 		end

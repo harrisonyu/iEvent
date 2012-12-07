@@ -42,7 +42,11 @@ textarea {
 .center h1 {
   margin-bottom: 10px;
 }
-
+/*#logo {
+  width: 40px;
+  height: 40px;
+}*/
+/*http://railsapps.github.com/rails-default-application-layout.html*/
 p {
   color: purple;
 }
