@@ -24,7 +24,6 @@ Temp::Application.configure do
 #   :like_operator => 'ILIKE'
 #  }
 
-  #config.assets.precompile += %w( bootstrap.css )
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH
 
