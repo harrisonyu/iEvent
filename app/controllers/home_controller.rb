@@ -25,7 +25,7 @@ class HomeController < ApplicationController
     @search_person = Person.find(:all, :conditions => ['name =? OR email =? OR address =?', @form, @form, @form])
     #@search = Event.find(:all, :conditions => ['name LIKE? OR event_start_time LIKE? OR event_end_time LIKE? OR cost LIKE? OR location LIKE? OR description LIKE? OR registration_deadline LIKE? OR food LIKE? OR event_type LIKE?', @form, @form, @form, @form, @form, @form, @form, @form, @form])
     #@search_person = Person.find(:all, :conditions => ['name LIKE? OR email LIKE? OR phone LIKE? OR address LIKE?', @form, @form, @form, @form])
-    @join = Sponsor.find(:all, :conditions => ['sponsorName =?', @form])
+    @join = Person.find(:all, :conditions => ['name =?', @form])
   end
 
   def my_recommendation
