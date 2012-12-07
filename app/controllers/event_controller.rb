@@ -16,7 +16,7 @@ class EventController < ApplicationController
 		reg = source.scan(/http:\/\/illinois\.edu\/calendar\/detail\/7\?eventId=[0-9]+/)
 		reg = reg.uniq
 		event_array = []
-		for i in 0..reg.length()-1
+		for i in 0..20#reg.length()-1
 			# For every match in reg we append it to the event array
 			event_array << reg[i]
 		end
