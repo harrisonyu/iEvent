@@ -16,7 +16,7 @@ class EventController < ApplicationController
 		reg = source.scan(/http:\/\/illinois\.edu\/calendar\/detail\/7\?eventId=[0-9]+/)
 		reg = reg.uniq
 		event_array = []
-		for i in 0..reg.length()-1
+		for i in 0..30#reg.length()-1
 			# For every match in reg we append it to the event array
 			event_array << reg[i]
 		end
@@ -27,7 +27,7 @@ class EventController < ApplicationController
 		#person_output = []
 		# NOTE : There are about 550+ events in event_array, it took upwards of 15min to crawl and parse them all.
 		# I have a feeling it should be faster than that though
-		for i in 0..event_array.length()-1
+		for i in 0..30#event_array.length()-1
 			# For every event, grab the source of the page
 			eventsource = Nokogiri::HTML(open(event_array[i]))
 			# array a holds the all the type of applicable attributes on the page(eg. cost, date, etc)
