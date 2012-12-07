@@ -155,7 +155,7 @@
 	%br
 	%br
 
--if 1#current_user.id == @event.createdby_user_id || current_user.id == 1
+-if current_user.id == @event.createdby_user_id #|| current_user.id == 1
 	= link_to "Delete Event", delete_event_path(@id), :class => "btn btn-danger"
 	%br
 	%br
